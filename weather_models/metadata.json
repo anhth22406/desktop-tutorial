@@ -1,0 +1,121 @@
+{
+  "project_info": {
+    "name": "Weather Big Data Analytics",
+    "created_date": "2025-01-31",
+    "description": "Dự đoán thời tiết sử dụng PySpark và Machine Learning"
+  },
+  "features": {
+    "all_features": [
+      "hour",
+      "day_of_week",
+      "month_num",
+      "day_of_month",
+      "is_day",
+      "province_encoded",
+      "city_encoded",
+      "temperature",
+      "temp_min",
+      "temp_max",
+      "temp_range",
+      "humidity",
+      "pressure",
+      "wind_speed",
+      "wind_gust",
+      "cloudcover",
+      "precipitation",
+      "visibility",
+      "feels_like",
+      "avg_temp_province",
+      "std_temp_province",
+      "avg_humidity_province",
+      "avg_pressure_province",
+      "avg_wind_province",
+      "temp_lag_1h",
+      "temp_lag_3h",
+      "humidity_lag_1h",
+      "pressure_lag_1h",
+      "temp_ma_3h",
+      "temp_ma_6h",
+      "humidity_ma_3h",
+      "temp_change_1h"
+    ],
+    "num_features": 32,
+    "time_features": [
+      "hour",
+      "day_of_week",
+      "month_num",
+      "day_of_month",
+      "is_day"
+    ],
+    "location_features": [
+      "province_encoded",
+      "city_encoded"
+    ],
+    "weather_features": [
+      "temperature",
+      "humidity",
+      "pressure",
+      "wind_speed",
+      "cloudcover",
+      "precipitation"
+    ],
+    "derived_features": [
+      "temp_range",
+      "temp_lag_1h",
+      "temp_ma_3h",
+      "temp_change_1h"
+    ]
+  },
+  "target": {
+    "classification_target": "weather_main",
+    "regression_target": "temperature (next hour)",
+    "clustering_target": "provinces"
+  },
+  "classes": {
+    "weather_classes": [
+      "Clouds",
+      "Rain",
+      "Clear",
+      "Mist",
+      "Thunderstorm",
+      "Squall",
+      "Drizzle",
+      "Smoke"
+    ],
+    "num_classes": 8
+  },
+  "models": {
+    "classification": {
+      "model": "Random Forest",
+      "num_trees": 100,
+      "max_depth": 10,
+      "accuracy": 0.9201557254755688,
+      "f1_score": 0.9179654633648303,
+      "precision": 0.9189264441495135,
+      "recall": 0.9201557254755689
+    },
+    "regression": {
+      "model": "Gradient Boosted Trees",
+      "rmse": 0.6466828861462063,
+      "mae": 0.4144328664065214,
+      "r2": 0.9632909384521553
+    },
+    "clustering": {
+      "model": "KMeans",
+      "num_clusters": 4,
+      "silhouette_score": 0.6071004084306947
+    }
+  },
+  "data_info": {
+    "total_rows": 214696,
+    "num_provinces": 78,
+    "date_range": "June 2025",
+    "aggregation": "hourly"
+  },
+  "preprocessing": {
+    "missing_values": "Mean imputation",
+    "outliers": "Filtered by thresholds",
+    "scaling": "StandardScaler",
+    "encoding": "StringIndexer"
+  }
+}
